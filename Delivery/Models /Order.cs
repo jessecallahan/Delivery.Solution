@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Globalization;
+
 
 namespace Delivery.Models
 {
@@ -8,12 +8,12 @@ namespace Delivery.Models
   {
     public string Title { get; set; }
     public string Description { get; set; }
-    public string Price { get; set; }
+    public int Price { get; set; }
     public string TimeCreated { get; }
     public int Id { get; }
-    private static List<Item> _instances = new List<Item> { };
+    private static List<Order> _instances = new List<Order> { };
 
-    public Order(string title, string price, string description)
+    public Order(string title, string description, int price)
     {
       Title = title;
       Description = description;
@@ -21,13 +21,6 @@ namespace Delivery.Models
       _instances.Add(this);
       Id = _instances.Count;
       TimeCreated = TimeStamp();
-    }
-    public string TimeStamp()
-    {
-      DateTime date = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day);
-      // converts to string format
-      string date_str = date.ToString("dd/MM/yyyy");
-      return date_str;
     }
 
     public static List<Order> GetAll()
@@ -39,9 +32,18 @@ namespace Delivery.Models
     {
       _instances.Clear();
     }
+
     public static Order Find(int searchId)
     {
       return _instances[searchId - 1];
+    }
+
+    public string TimeStamp()
+    {
+      DateTime date = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day);
+      // converts to string format
+      string date_str = date.ToString("dd/MM/yyyy");
+      return date_str;
     }
 
   }

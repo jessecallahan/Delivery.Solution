@@ -27,9 +27,9 @@ namespace Delivery.Models
     {
       return _instances;
     }
-    public void AddItem(Item item)
+    public void AddOrder(Order order)
     {
-      Orders.Add(item);
+      Orders.Add(order);
     }
 
     public static Vendor Find(int searchId)
