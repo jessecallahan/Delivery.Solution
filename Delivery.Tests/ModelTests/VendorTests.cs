@@ -51,5 +51,23 @@ namespace Delivery.Tests
 
       Assert.AreEqual(newVendor2, result);
     }
+
+    [TestMethod]
+    public void AddOrder_AssociatesOrderWithVendor_OrderList()
+    {
+      string orderTitle = "bread";
+      string orderDescription = "sourdough";
+      int orderPrice = 10;
+      Order newOrder = new Order(orderTitle, orderDescription, orderPrice);
+      List<Order> newList = new List<Order> { newOrder };
+      string vendorTitle = "cafe";
+      string vendorDescription = "downtown";
+      Vendor newVendor = new Vendor(vendorTitle, vendorDescription);
+      newVendor.AddOrder(newOrder);
+
+      List<Order> result = newVendor.Orders;
+
+      CollectionAssert.AreEqual(newList, result);
+    }
   }
 }
