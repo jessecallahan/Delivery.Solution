@@ -24,12 +24,12 @@ namespace Delivery.Tests
     [TestMethod]
     public void GetAll_ReturnsAllOrderObjects_OrderList()
     {
-      string title01 = "cafe";
-      string title02 = "corner store";
+      string title01 = "pastry";
+      string title02 = "bread";
       int price01 = 100;
       int price02 = 200;
-      string description01 = "suburbs";
-      string description02 = "downtown";
+      string description01 = "rasberry donughts and scones";
+      string description02 = "sourdough";
       Order newOrder1 = new Order(title01, description01, price01);
       Order newOrder2 = new Order(title02, description02, price02);
       List<Order> newList = new List<Order> { newOrder1, newOrder2 };
