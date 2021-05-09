@@ -24,12 +24,12 @@ namespace Delivery.Tests
     [TestMethod]
     public void GetAll_ReturnsAllVendorObjects_VendorList()
     {
-      string title01 = "cafe";
-      string title02 = "corner store";
+      string name01 = "cafe";
+      string name02 = "corner store";
       string description01 = "suburbs";
       string description02 = "downtown";
-      Vendor newVendor1 = new Vendor(title01, description01);
-      Vendor newVendor2 = new Vendor(title02, description02);
+      Vendor newVendor1 = new Vendor(name01, description01);
+      Vendor newVendor2 = new Vendor(name02, description02);
       List<Vendor> newList = new List<Vendor> { newVendor1, newVendor2 };
 
       List<Vendor> result = Vendor.GetAll();
@@ -40,12 +40,12 @@ namespace Delivery.Tests
     [TestMethod]
     public void Find_ReturnsCorrectVendor_Vendor()
     {
-      string title01 = "cafe";
-      string title02 = "corner store";
+      string name01 = "cafe";
+      string name02 = "corner store";
       string description01 = "suburbs";
       string description02 = "downtown";
-      Vendor newVendor1 = new Vendor(title01, description01);
-      Vendor newVendor2 = new Vendor(title02, description02);
+      Vendor newVendor1 = new Vendor(name01, description01);
+      Vendor newVendor2 = new Vendor(name02, description02);
 
       Vendor result = Vendor.Find(2);
 
@@ -60,9 +60,9 @@ namespace Delivery.Tests
       int orderPrice = 10;
       Order newOrder = new Order(orderTitle, orderDescription, orderPrice);
       List<Order> newList = new List<Order> { newOrder };
-      string vendorTitle = "cafe";
+      string vendorName = "cafe";
       string vendorDescription = "downtown";
-      Vendor newVendor = new Vendor(vendorTitle, vendorDescription);
+      Vendor newVendor = new Vendor(vendorName, vendorDescription);
       newVendor.AddOrder(newOrder);
 
       List<Order> result = newVendor.Orders;

@@ -11,31 +11,32 @@ This delivery service, is a C# application that replicates a delivery tracking s
 ## Setup/Installation Requirements
 
 1. Clone this [repository](https://github.com/jessecallahan/Bakery.Solution)
-2. Navigate to the Bakery folder
+2. Navigate to the Delivery folder
 3. Run 'dotnet restore && dotnet run' to run the application
-4. Navigate to the Bakery.Tests folder
+4. Navigate to the Delivery.Tests folder
 5. Run ''dotnet restore && dotnet test' to run the MSTest Enviorment
 6. Enjoy!
 
 ## Specs
 
-_**Bread Object**_
+_**Vendor Object**_
 
-|  Amount/User Input|  Type | Output  | Test Function |
-|---|---|---|---|
-| 1  |  "Vendor" | Instance of Vendor is Vendor type | BreadConstructor_CreatesInstanceOfBread_Bread() |
-| 0  |  "Vendor" | Vendor can be added to | ReturnBreadTotalCost_ReturnsBreadTotalCostTest1_Int()| 
-| 1  |  "Vendor"  | Vendor can be deleted | GetAmount_ReturnsBreadAmount_Int() |
+|  Type | Output  | Test Function |
+|---|---|---|
+|  "Vendor" | Instance of Vendor is Vendor type | VendorConstructor_CreatesInstanceOVendor() |
+ |  "Vendor" | Returns vendor list | GetAll_ReturnsAllVendorObjects_VendorList()| 
+|  "Vendor"  | Returns specified vendor object | Find_ReturnsCorrectVendor_Vendor() |
+ |  "Vendor"  | Adds an order object to vendor object | AddOrder_AssociatesOrderWithVendor_OrderList() |
 
 
 
-_**Pastry Object**_
+_**Order Object**_
 
-|  Amount/User Input|  Type | Output  | Test Function |
-|---|---|---|---|
-| 1  |  "order" | Instance of order is order type | PastriesConstructor_CreatesInstanceOfPastry_Pastries() | 
-| 1  |  "order"  | Order inputs working | GetAmount_ReturnsPastryAmount_Int() |
-| 0  |  "order" | Order can be added to vendor | ReturnPastryTotalCost_ReturnsPastryTotalCostTest1_Int()|
+|  Type | Description  | Test Function |
+|---|---|---|
+|  "order" | Instance of order is order type | OrderConstructor_CreatesInstanceOfOrder_Order() | 
+|  "order"  | Returns Order list | GetAll_ReturnsAllOrderObjects_OrderList() |
+|  "order" | Order can be added to vendor | Find_ReturnsCorrectOrder_Order()|
 
 
 ## Technologies Used
