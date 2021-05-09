@@ -39,12 +39,12 @@ namespace Delivery.Controllers
     }
 
     // This one creates new Orders within a given Vendors, not new Vendors:
-    [HttpPost("/vendors/{vendorId}/items")]
-    public ActionResult Create(int vendorId, string itemTitle, string itemDescription, int itemPrice)
+    [HttpPost("/vendors/{vendorId}/orders")]
+    public ActionResult Create(int vendorId, string orderTitle, string orderDescription, int orderPrice)
     {
       Dictionary<string, object> model = new Dictionary<string, object>();
       Vendor foundVendor = Vendor.Find(vendorId);
-      Order newOrder = new Order(itemTitle, itemDescription, itemPrice);
+      Order newOrder = new Order(orderTitle, orderDescription, orderPrice);
       foundVendor.AddOrder(newOrder);
       List<Order> vendorOrders = foundVendor.Orders;
       model.Add("orders", vendorOrders);
@@ -52,7 +52,12 @@ namespace Delivery.Controllers
       return View("Show", model);
     }
 
-
+    [HttpPost("/vendors/delete")]
+    public ActionResult DeleteAll()
+    {
+      Vendor.ClearAll();
+      return View();
+    }
 
   }
 }
