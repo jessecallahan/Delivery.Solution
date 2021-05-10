@@ -1,0 +1,11 @@
+body {
+  background-color: yellow;
+  font-family: "Televideo";
+  margin: 5%;
+}
+
+@font-face
+{
+font-family:"Televideo";
+src:url('Televideo.otf');
+}
